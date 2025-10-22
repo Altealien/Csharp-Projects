@@ -3,7 +3,7 @@ Requirements:
 Create a Student class with the following:
 
 Properties: Name, StudentID, Grades (List of integers)
-Auto-implemented property for EnrollmentYear
+Auto-implemented property for  Enrollment Year
 Constructor that takes name and student ID
 Method AddGrade(int grade) - validates grade is between 0-100
 Method GetAverage() - returns average grade
