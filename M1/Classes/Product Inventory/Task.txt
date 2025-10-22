@@ -1,0 +1,20 @@
+Requirements:
+Create a static InventoryHelper class with utility methods:
+
+IsLowStock(int quantity) - returns true if quantity < 10
+CalculateTotalValue(decimal price, int quantity) - returns total value
+FormatProductCode(string name) - returns uppercase with "PROD-" prefix
+
+Create a Product class with:
+
+Auto-implemented properties: Name, Price, Quantity
+Property TotalValue (read-only, calculated using InventoryHelper)
+Property StockStatus (read-only, uses InventoryHelper to determine "Low" or "OK")
+Constructor with validation (price > 0, quantity >= 0)
+Method UpdateStock(int amount) - can be positive (add) or negative (remove)
+
+Task:
+
+Create 3 products with user input
+Allow user to update stock for any product
+Display all products with their values and stock status
