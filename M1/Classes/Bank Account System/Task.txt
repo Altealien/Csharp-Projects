@@ -1,0 +1,21 @@
+Requirements:
+Create a BankAccount class with:
+
+Private field balance
+Properties: AccountNumber (read-only after creation), AccountHolder
+Constructor overloading:
+
+One constructor with just account number (balance = 0)
+Another with account number and initial balance
+
+
+Method Deposit(decimal amount) with validation
+Method Withdraw(decimal amount) with validation (can't overdraw)
+Static property to track TotalTransactions across all accounts
+Use this keyword where appropriate
+
+Task:
+
+Create 2 accounts with user input
+Perform 3 deposits/withdrawals per account
+Display final balances and total transactions
