@@ -1,0 +1,20 @@
+Requirements:
+Create a QuizQuestion class with:
+
+Properties: Question, CorrectAnswer
+Private field to store user's answer
+Method SubmitAnswer(string answer) - returns bool if correct
+Static fields to track TotalQuestions and TotalCorrect across all instances
+
+Create a Quiz class with:
+
+List of QuizQuestion objects
+Method AddQuestion(string question, string answer)
+Method TakeQuiz() - asks all questions and tracks answers
+Static method GetScorePercentage() - returns overall score %
+
+Task:
+
+Create 5 quiz questions
+Let user take the quiz
+Display total score and percentage
