@@ -80,7 +80,7 @@ public class Product
     {
         Console.WriteLine($"--------------{InventoryHelper.FormatProductCode(ProductName)}----------------");
         Console.WriteLine($"Product Name: {ProductName}");
-        Console.WriteLine($"Total Value:£ {TotalValue}");
+        Console.WriteLine($"Total Value:£{TotalValue}");
         Console.WriteLine($"Stock Status: {StockStatus}");
         Console.WriteLine("=======================================================================");
     }

@@ -18,8 +18,3 @@ Task:
 Create 3 products with user input
 Allow user to update stock for any product
 Display all products with their values and stock status
-
-
-Updates to make:
-1.Make the diplay more aesthetically pleasing
-2.Allow user to update stock and view inventory at anytime.
