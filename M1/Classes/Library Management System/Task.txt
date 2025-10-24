@@ -1,0 +1,190 @@
+Build a complete library system with the following requirements:
+Classes to Create:
+1. Book Class
+
+Properties:
+
+BookID (auto-generated, read-only)
+Title, Author, ISBN
+IsAvailable (private set)
+BorrowedBy (stores member name, can be null)
+BorrowedDate (nullable DateTime)
+
+
+Static counter for auto-generating BookIDs
+Constructor overloading (with/without ISBN)
+Methods:
+
+Borrow(string memberName) - marks as unavailable, sets borrower
+Return() - marks as available, clears borrower
+Display() - shows all book info
+
+
+
+2. Member Class
+
+Properties:
+
+MemberID (auto-generated, read-only)
+Name, Email, PhoneNumber
+BooksBorrowed (List of book titles)
+MembershipDate (DateTime, set in constructor)
+
+
+Static field TotalMembers
+Constructor with validation (email must contain @)
+Methods:
+
+BorrowBook(Book book) - validates member can borrow (max 3 books)
+ReturnBook(Book book)
+Display() - shows member info and borrowed books
+
+
+
+3. Library Class (Static)
+
+Static methods only:
+
+GenerateBookReport(List<Book> books) - shows total, available, borrowed
+GenerateMemberReport(List<Member> members) - shows total members, active borrowers
+SearchBooks(List<Book> books, string searchTerm) - searches by title or author
+ValidateISBN(string isbn) - checks if 10 or 13 digits
+
+
+
+4. LibraryManager Class
+
+Fields:
+
+Private lists for books and members
+
+
+Constructor initializes the lists
+Methods:
+
+AddBook() - gets user input and creates book
+AddMember() - gets user input and creates member
+BorrowBook() - handles borrowing process
+ReturnBook() - handles return process
+ListAllBooks() - displays all books
+ListAllMembers() - displays all members
+SearchBooks() - uses Library static method
+ShowReports() - displays both reports
+
+
+
+Required Features:
+
+Menu System with options:
+
+Add new book
+Add new member
+Borrow book
+Return book
+List all books
+List all members
+Search books
+Show reports
+Exit
+
+
+Validation:
+
+Email must contain @
+Phone must be 10+ digits
+ISBN must be 10 or 13 digits (use Library.ValidateISBN)
+Members can't borrow more than 3 books
+Can't borrow unavailable books
+
+
+Use ALL Concepts:
+
+Fields (private)
+Properties (regular and auto-implemented)
+Constructors (with overloading)
+this keyword
+Static members and static class
+Access modifiers (public, private)
+
+
+User Input:
+
+All data entry through console
+Clear prompts and error messages
+Proper validation with retry logic
+
+
+
+Sample Interaction:
+=== Library Management System ===
+1. Add Book
+2. Add Member
+3. Borrow Book
+4. Return Book
+5. List All Books
+6. List All Members
+7. Search Books
+8. Show Reports
+9. Exit
+
+Choose option: 1
+
+=== Add New Book ===
+Title: Clean Code
+Author: Robert Martin
+ISBN (optional, press Enter to skip): 9780132350884
+Book added successfully! Book ID: BK001
+
+Choose option: 3
+
+=== Borrow Book ===
+Enter Member ID: MEM001
+Enter Book ID: BK001
+Book 'Clean Code' borrowed successfully by John Doe!
+
+Choose option: 8
+
+=== Library Reports ===
+--- Book Statistics ---
+Total Books: 5
+Available: 3
+Borrowed: 2
+
+--- Member Statistics ---
+Total Members: 3
+Active Borrowers: 2
+Evaluation Criteria:
+
+✅ All 4 classes properly structured
+✅ All concepts used correctly (fields, properties, constructors, static, etc.)
+✅ Proper encapsulation (private fields, public properties)
+✅ Input validation working
+✅ Menu system functional
+✅ All 9 menu options working
+✅ Code is clean and organized
+✅ Proper use of this keyword
+✅ Static members used appropriately
+
+Bonus Challenges (Optional):
+
+Add overdue tracking (books borrowed > 14 days)
+Add fine calculation ($1 per day overdue)
+Add book categories/genres
+Implement member search by name
+Add data persistence (save to file)
+
+
+Quick Tips for Mini Project:
+
+Start with classes first - define all properties and methods
+Build incrementally - test each feature before moving to next
+Use method extraction - keep methods small and focused
+Handle errors gracefully - use try-catch where needed
+Test as you go - don't wait until the end
+
+Time Allocation:
+
+Planning & class structure: 10 mins
+Core functionality: 20 mins
+Menu system & integration: 10 mins
+Testing & debugging: 5 mins
