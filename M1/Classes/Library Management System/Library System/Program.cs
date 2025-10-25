@@ -22,9 +22,11 @@ while (running)
             break;
         case "3":
             //Borrow Book
+            library.BorrowBook();
             break;
         case "4":
             //Return Book
+            library.ReturnBook();
             break;
         case "5":
             //List All Books

@@ -60,6 +60,56 @@ public class LibraryManager
         Console.WriteLine($"Library Registeration was successful! Member ID: {member.MemberID}");
         members.Add(member);
     }
+    public void BorrowBook()
+    {
+        Console.WriteLine("=== Borrow Book ===");
+        Console.Write("Enter Member ID: ");
+        string? memberID = Console.ReadLine();
+        Console.Write("Enter Book ID: ");
+        string? bookID = Console.ReadLine();
+
+        Book? book = books.FirstOrDefault(b => b.BookID == bookID);
+        if (book == null)
+        {
+            Console.WriteLine("Book ID not found!");
+            return;
+        }
+
+        Member? member = members.FirstOrDefault(m => m.MemberID == memberID);
+        if (member == null)
+        {
+            Console.WriteLine("Member ID not found!");
+            return;
+        }
+
+        member.BorrowBook(book);
+        Console.WriteLine($"Book '{book.Title}' borrowed successfully by {member.MemberName}!");
+    }
+    public void ReturnBook()
+    {
+        Console.WriteLine("=== Return Book ===");
+        Console.Write("Enter Member ID: ");
+        string? memberID = Console.ReadLine();
+        Console.Write("Enter Book ID: ");
+        string? bookID = Console.ReadLine();
+
+        Book? book = books.FirstOrDefault(b => b.BookID == bookID);
+        if (book == null)
+        {
+            Console.WriteLine("Book ID not found!");
+            return;
+        }
+
+        Member? member = members.FirstOrDefault(m => m.MemberID == memberID);
+        if (member == null)
+        {
+            Console.WriteLine("Member ID not found!");
+            return;
+        }
+
+        member.ReturnBook(book);
+        Console.WriteLine($"Book '{book.Title}' returned successfully by {member.MemberName}!");
+    }
 
     public void ListAllBooks()
     {
