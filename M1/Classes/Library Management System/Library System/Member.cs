@@ -33,6 +33,7 @@ public class Member
     {
         if (BooksBorrowed.Count < 3)
         {
+            book.Borrow(MemberName);
             BooksBorrowed.Add(book.Title);
         }
         else
@@ -41,7 +42,7 @@ public class Member
         }
     }
 
-    public void ReturBook(Book book)
+    public void ReturnBook(Book book)
     {
         BooksBorrowed.Remove(book.Title);
         book.Return();
