@@ -1,10 +1,4 @@
 namespace LibrarySystem;
-/*Static methods only:
-
-GenerateBookReport(List<Book> books) - shows total, available, borrowed
-GenerateMemberReport(List<Member> members) - shows total members, active borrowers
-SearchBooks(List<Book> books, string searchTerm) - searches by title or author
-ValidateISBN(string isbn) - checks if 10 or 13 digits*/
 public static class Library
 {
     public static List<Book> AvailableBooks { get; } = [];

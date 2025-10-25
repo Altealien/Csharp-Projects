@@ -1,5 +1,4 @@
 namespace LibrarySystem;
-// Work on enabling proper validation for email.
 public class Member
 {
     private static int totalMembers = 0;
@@ -29,7 +28,7 @@ public class Member
         MembershipDate = DateTime.Now;
     }
 
-    public void BorrowBook(Book book)
+    public void BorrowBook(Book? book)
     {
         if (BooksBorrowed.Count < 3)
         {
@@ -42,7 +41,7 @@ public class Member
         }
     }
 
-    public void ReturnBook(Book book)
+    public void ReturnBook(Book? book)
     {
         BooksBorrowed.Remove(book.Title);
         book.Return();

@@ -1,10 +1,4 @@
-using Microsoft.VisualBasic;
-
 namespace LibrarySystem;
-/*
-BorrowBook() - handles borrowing process
-ReturnBook() - handles return process
-*/
 public class LibraryManager
 {
     private List<Book> books;

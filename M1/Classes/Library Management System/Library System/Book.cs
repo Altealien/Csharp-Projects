@@ -1,7 +1,4 @@
 namespace LibrarySystem;
-//Static counter for auto-generating BookIDs// Not Implemented
-
-
 public class Book
 {
     private static int nextID = 1;
