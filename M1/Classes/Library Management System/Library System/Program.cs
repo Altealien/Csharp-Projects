@@ -2,8 +2,8 @@ using LibrarySystem;
 
 Console.WriteLine("=== Library Management System ===");
 
-
-/*bool running = true;
+LibraryManager library = new();
+bool running = true;
 while (running)
 {
     MenuDisplay();
@@ -14,9 +14,11 @@ while (running)
     {
         case "1":
             //Add Book
+            library.AddBook();
             break;
         case "2":
             //Add Member
+            library.AddMember();
             break;
         case "3":
             //Borrow Book
@@ -26,21 +28,28 @@ while (running)
             break;
         case "5":
             //List All Books
+            library.ListAllBooks();
             break;
         case "6":
             //List All Members
+            library.ListAllMembers();
             break;
         case "7":
             //Search Books
+            library.SearchBooks();
             break;
         case "8":
             //Show Reports
+            library.ShowReports();
             break;
         case "9":
             //Exit System
+            running = false;
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
             break;
     }
-}*/
+}
 
 
 void MenuDisplay()

@@ -72,12 +72,12 @@ public static class Library
         Console.WriteLine($"Active Borrower Count: {ActiveBorrowers.Count}");
     }
 
-    public static List<Book> SearchBook(List<Book> books, string searchTerm)
+    public static List<Book> SearchBook(List<Book> books, string? searchTerm)
     {
         return [.. books.Where(book => book.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
         book.Author.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))];
     }
-    public static bool IsValidISBN(string isbn)
+    public static bool IsValidISBN(string? isbn)
     {
         if (isbn.Length == 10 || isbn.Length == 13)
         {

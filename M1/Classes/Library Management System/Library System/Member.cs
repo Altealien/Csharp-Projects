@@ -64,9 +64,8 @@ public class Member
                 Console.Write(BooksBorrowed[i] + ", ");
                 i++;
             }
-            Console.Write(BooksBorrowed[i] + ".");
+            Console.WriteLine(BooksBorrowed[i] + ".");
         }
-        Console.WriteLine();
         Console.WriteLine("====================================");
     }
     private string GenerateMemberID()

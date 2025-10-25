@@ -1,17 +1,9 @@
+using Microsoft.VisualBasic;
+
 namespace LibrarySystem;
 /*
-
-Constructor initializes the lists
-Methods:
-
-AddBook() - gets user input and creates book
-AddMember() - gets user input and creates member
 BorrowBook() - handles borrowing process
 ReturnBook() - handles return process
-ListAllBooks() - displays all books
-ListAllMembers() - displays all members
-SearchBooks() - uses Library static method
-ShowReports() - displays both reports
 */
 public class LibraryManager
 {
@@ -33,14 +25,23 @@ public class LibraryManager
         string? author = Console.ReadLine();
         Console.Write("ISBN(optional, press Enter to skip): ");
         string? isbn = Console.ReadLine();
-        Book book;
-        if (string.IsNullOrEmpty(isbn))
+        Book? book = default;
+        if (Library.IsValidISBN(isbn))
         {
-            book = new(title, author);
+            if (string.IsNullOrEmpty(isbn))
+            {
+                book = new(title, author);
+            }
+            else
+            {
+                book = new(title, author, isbn);
+            }
         }
         else
         {
-            book = new(title, author, isbn);
+            Console.WriteLine("Invalid ISBN!");
+            Console.Write("Enter valid  ISBN: ");
+            isbn = Console.ReadLine();
         }
         Console.WriteLine($"Book created successfully! Book ID: {book.BookID}");
         books.Add(book);
@@ -58,5 +59,57 @@ public class LibraryManager
         Member member = new(name, email, phoneNumber);
         Console.WriteLine($"Library Registeration was successful! Member ID: {member.MemberID}");
         members.Add(member);
+    }
+
+    public void ListAllBooks()
+    {
+        Console.Write("All Books: ");
+        for (int i = 0; i < books.Count; i++)
+        {
+            while (i != books.Count - 1)
+            {
+                Console.Write(books[i] + ", ");
+                i++;
+            }
+            Console.WriteLine(books[i] + ".");
+        }
+        Console.WriteLine("====================================");
+    }
+
+    public void ListAllMembers()
+    {
+        Console.Write("All Members: ");
+        for (int i = 0; i < members.Count; i++)
+        {
+            while (i != members.Count - 1)
+            {
+                Console.Write(members[i] + ", ");
+                i++;
+            }
+            Console.WriteLine(members[i] + ".");
+        }
+        Console.WriteLine("====================================");
+    }
+    public void SearchBooks()
+    {
+        Console.Write("Enter search term(either Book Title or Author): ");
+        string? searchTerm = Console.ReadLine();
+        List<Book> searchResults = Library.SearchBook(books, searchTerm);
+        Console.Write("Search results: ");
+        for (int i = 0; i < searchResults.Count; i++)
+        {
+            while (i != searchResults.Count - 1)
+            {
+                Console.Write(searchResults[i] + ", ");
+                i++;
+            }
+            Console.WriteLine(searchResults[i] + ".");
+        }
+        Console.WriteLine("====================================");
+    }
+    public void ShowReports()
+    {
+        Library.GenerateBookReport(books);
+        Library.GenerateMemberReport(members);
     }
 }
