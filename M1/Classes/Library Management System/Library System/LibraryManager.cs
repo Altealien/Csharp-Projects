@@ -1,4 +1,5 @@
 namespace LibrarySystem;
+
 public class LibraryManager
 {
     private List<Book> books;
@@ -12,6 +13,7 @@ public class LibraryManager
 
     public void AddBook()
     {
+        //ISBN is causing issues when I click enter to skip.
         Console.WriteLine("=== Add New Book ===");
         Console.Write("Title: ");
         string? title = Console.ReadLine();
@@ -20,22 +22,18 @@ public class LibraryManager
         Console.Write("ISBN(optional, press Enter to skip): ");
         string? isbn = Console.ReadLine();
         Book? book = default;
-        if (Library.IsValidISBN(isbn))
+        if (Library.IsValidISBN(isbn) && string.IsNullOrEmpty(isbn))
         {
-            if (string.IsNullOrEmpty(isbn))
-            {
-                book = new(title, author);
-            }
-            else
-            {
-                book = new(title, author, isbn);
-            }
+            book = new(title, author);
+        }
+        else if (Library.IsValidISBN(isbn))
+        {
+            book = new(title, author, isbn);
         }
         else
         {
             Console.WriteLine("Invalid ISBN!");
-            Console.Write("Enter valid  ISBN: ");
-            isbn = Console.ReadLine();
+            return;
         }
         Console.WriteLine($"Book created successfully! Book ID: {book.BookID}");
         books.Add(book);
@@ -108,14 +106,18 @@ public class LibraryManager
     public void ListAllBooks()
     {
         Console.Write("All Books: ");
+        if (books.Count == 0)
+        {
+            Console.WriteLine();
+        }
         for (int i = 0; i < books.Count; i++)
         {
             while (i != books.Count - 1)
             {
-                Console.Write(books[i] + ", ");
+                Console.Write(books[i].Title + ", ");
                 i++;
             }
-            Console.WriteLine(books[i] + ".");
+            Console.WriteLine(books[i].Title + ".");
         }
         Console.WriteLine("====================================");
     }
@@ -123,19 +125,24 @@ public class LibraryManager
     public void ListAllMembers()
     {
         Console.Write("All Members: ");
+        if (members.Count == 0)
+        {
+            Console.WriteLine();
+        }
         for (int i = 0; i < members.Count; i++)
         {
             while (i != members.Count - 1)
             {
-                Console.Write(members[i] + ", ");
+                Console.Write(members[i].MemberName + ", ");
                 i++;
             }
-            Console.WriteLine(members[i] + ".");
+            Console.WriteLine(members[i].MemberName + ".");
         }
         Console.WriteLine("====================================");
     }
     public void SearchBooks()
     {
+        // Logic isn't completely correct
         Console.Write("Enter search term(either Book Title or Author): ");
         string? searchTerm = Console.ReadLine();
         List<Book> searchResults = Library.SearchBook(books, searchTerm);

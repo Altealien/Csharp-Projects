@@ -1,4 +1,5 @@
 namespace LibrarySystem;
+
 public class Book
 {
     private static int nextID = 1;
@@ -24,6 +25,10 @@ public class Book
         BookID = GenerateBookID();
         Title = title;
         Author = author;
+        if (string.IsNullOrEmpty(isbn))
+        {
+            ISBN = null;
+        }
         ISBN = isbn;
         bookCounter++;
     }

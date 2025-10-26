@@ -1,4 +1,5 @@
 namespace LibrarySystem;
+
 public static class Library
 {
     public static List<Book> AvailableBooks { get; } = [];
@@ -20,6 +21,10 @@ public static class Library
             }
         }
         Console.Write("Available books: ");
+        if (AvailableBooks.Count == 0)
+        {
+            Console.WriteLine();
+        }
         for (int i = 0; i < AvailableBooks.Count; i++)
         {
             while (i != AvailableBooks.Count - 1)
@@ -30,6 +35,10 @@ public static class Library
             Console.WriteLine(AvailableBooks[i].Title + ".");
         }
         Console.Write($"Borrowed Books: ");
+        if (BorrowedBooks.Count == 0)
+        {
+            Console.WriteLine();
+        }
         for (int i = 0; i < BorrowedBooks.Count; i++)
         {
             while (i != BorrowedBooks.Count - 1)
@@ -53,6 +62,10 @@ public static class Library
             }
         }
         Console.Write($"Active borrowers: ");
+        if (ActiveBorrowers.Count == 0)
+        {
+            Console.WriteLine();
+        }
         int i = 0;
         foreach (Member borrower in ActiveBorrowers)
         {
@@ -64,6 +77,7 @@ public static class Library
             Console.WriteLine(borrower.MemberName + ".");
         }
         Console.WriteLine($"Active Borrower Count: {ActiveBorrowers.Count}");
+        Console.WriteLine("======================================");
     }
 
     public static List<Book> SearchBook(List<Book> books, string? searchTerm)
@@ -73,10 +87,9 @@ public static class Library
     }
     public static bool IsValidISBN(string? isbn)
     {
-        if (isbn.Length == 10 || isbn.Length == 13)
-        {
-            return true;
+        if(string.IsNullOrEmpty(isbn)){
+            isbn = null;
         }
-        return false;
+        return isbn.Length == 10 || isbn.Length == 13;
     }
 }

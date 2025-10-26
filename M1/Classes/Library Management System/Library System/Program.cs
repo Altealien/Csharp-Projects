@@ -45,6 +45,10 @@ while (running)
             library.ShowReports();
             break;
         case "9":
+            //Clear Screen
+            Console.Clear();
+            break;
+        case "10":
             //Exit System
             running = false;
             Console.WriteLine("Press any key to exit");
@@ -64,5 +68,6 @@ void MenuDisplay()
     Console.WriteLine("6. List All Members");
     Console.WriteLine("7. Search Books");
     Console.WriteLine("8. Show Reports");
-    Console.WriteLine("9. Exit");
+    Console.WriteLine("9. Clear Screen");
+    Console.WriteLine("10. Exit");
 }
