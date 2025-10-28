@@ -1,0 +1,30 @@
+Objective: Practice try-catch blocks, multiple catch blocks, and common exceptions.
+Requirements:
+Create a console calculator that:
+
+Takes two numbers and an operation (+, -, *, /) from user input
+Handles these exceptions properly:
+
+FormatException - Invalid number format
+DivideByZeroException - Division by zero
+OverflowException - Number too large/small
+General Exception - Any other error
+
+
+Uses a loop to allow multiple calculations
+Exits when user types "exit"
+
+Expected Output:
+
+Enter first number: 10
+Enter operation (+, -, *, /): /
+Enter second number: 0
+Error: Cannot divide by zero!
+
+Enter first number: 15
+Enter operation (+, -, *, /): +
+Enter second number: abc
+Error: Invalid number format. Please enter a valid number.
+
+Enter first number: exit
+Calculator closed.
