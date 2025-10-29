@@ -1,46 +1,28 @@
-string? response = " ";
-int result = 0;
-bool running = true;
-while (running)
+while (true)
 {
     try
     {
         Console.Write("Enter first number: ");
-        response = Console.ReadLine();
-        if(response == "exit" || response == "Exit")
+        string? input1 = Console.ReadLine();
+        if(input1?.ToLower() == "exit")
         {
-            running = false;
-            return;
+            Console.WriteLine("Calculator closed");
+            break;
         }
-        int num1 = int.Parse(response);
+        int num1 = int.Parse(input1);
         Console.Write("Enter operation (+, -, *, /): ");
         char operation = char.Parse(Console.ReadLine());
         Console.Write("Enter second number: ");
-        response = Console.ReadLine();
-        int num2 = int.Parse(response);
-
-        if (operation == '+')
-        {
-            result = num1 + num2;
-        }
-        else if (operation == '-')
-        {
-            result = num1 - num2;
-        }
-        else if (operation == '*')
-        {
-            result = num1 * num2;
-        }
-        else if (operation == '/')
-        {
-            result = num1 / num2;
-        }
-        else
-        {
-            Console.WriteLine("Invalid Operation");
-        }
-        Console.WriteLine($"Result: {num1} {operation} {num2} = {result} ");
-        Console.WriteLine();
+        string? input2 = Console.ReadLine();
+        int num2 = int.Parse(input2);
+        int result = operation switch{
+            '+' => num1 + num2,
+            '-' => num1 - num2,
+            '*' => num1 * num2,
+            '/' => num1 / num2,
+            _ => throw new InvalidOperationException($"Invalid Operation: {operation}")
+        };
+        Console.WriteLine($"Result: {num1} {operation} {num2} = {result}\n");
     }
     catch (FormatException ex)
     {
